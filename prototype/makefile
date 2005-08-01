@@ -1,7 +1,7 @@
 EXE := gradius
 SRCS := gradius.bas
 OBJS := $(SRCS:.bas=.o)
-BASFLAGS := -exx -g -m gradius
+BASFLAGS := -exx -g -m gradius -r
 
 
 all: $(EXE)
