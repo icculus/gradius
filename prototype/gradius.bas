@@ -28,14 +28,11 @@ end type
 
 dim shared vidsurf as SDL_Surface ptr
 
-redim shared actors(0) as actor_t
+redim shared actors(200) as actor_t
 redim shared bitmaps(0) as bitmap_cache_t
 
 'fractional seconds to travel from one side of screen to other.
 const PLAYER_BULLET_SPEED = 0.75
-
-'milliseconds between waves of baddies.
-const SPAWN_BAD_GUY_THRESHOLD = 2500
 
 const SCREEN_WIDTH = 800
 const SCREEN_HEIGHT = 600
@@ -149,7 +146,7 @@ sub init_sdl
         end
     end if
 
-    SDL_WM_SetCaption("Gradius!", "gradius")
+    SDL_WM_SetCaption("Gradius! The Musical!", "gradius")
     SDL_ShowCursor(0)
 
     vidsurf = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0)
@@ -414,11 +411,11 @@ sub update_events
     if (ticks - last_ticks > 100) then
         dim actor as actor_t ptr
         dim randval as single = rnd(1)
-        dim x as integer = vidsurf->w - 10
+        dim x as integer = vidsurf->w - 1
         dim y as integer = cint(rnd(1) * vidsurf->h)
         if (randval < 0.10) then  'spawn bad guy
             actor = spawn_actor("baddy.bmp", 1, 255, 255, 0, 255, 0, 255, x, y, 32, 32)
-            calc_actor_velocity(actor, -5.0, 0.0)
+            calc_actor_velocity(actor, -3.0, 0.0)
             actor->goodness = -1
             actor->explode_ticks = 500
         end if
