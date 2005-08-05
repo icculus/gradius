@@ -1,3 +1,20 @@
+'
+' Is Gradius Better Or Worse With A Mouse And Not A Gamepad?
+'
+'   Written by Ryan C. Gordon (icculus@icculus.org)
+'
+' This code is released to the public domain.
+' This code may be used in any way you like, including commercial exploitation.
+' Please don't bother me about it.
+'
+' The graphics that come with this program are not owned by me, and cannot
+'  be used or reproduced without permission from the original owners, whoever
+'  they might be. Please replace them if you do something serious with this.
+'
+' This code has NO WARRANTY.
+'
+
+
 option base 0
 option explicit
 '$INCLUDE: "SDL/SDL.bi"
